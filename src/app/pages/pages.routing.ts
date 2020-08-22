@@ -5,26 +5,26 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ProgressComponent} from './progress/progress.component';
 import {Grafica1Component} from './grafica1/grafica1.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesaComponent } from './promesa/promesa.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
 const routes: Routes = [  
     {
         path: 'dashboard', 
         component: PagesComponent,
         children:[
-          {path:'', component: DashboardComponent},
-          {path:'progress', component: ProgressComponent},
-          {path:"grafica1", component: Grafica1Component}, 
-          {path:"account-settings", component: AccountSettingsComponent}, 
+          {path:'', component: DashboardComponent, data:{title:'Dashboard'}},
+          {path:'progress', component: ProgressComponent, data:{title:'Progress Bar'}},
+          {path:"grafica1", component: Grafica1Component, data:{title:'Grafica'}}, 
+          {path:"account-settings", component: AccountSettingsComponent, data:{title:'Configuracion'}}, 
+          {path:"promesa", component: PromesaComponent, data:{title:'Promesa'}}, 
+          {path:"rxjs", component: RxjsComponent, data:{title:'RXJS'}}, 
         ]
     },
       
     {path:'dashboard', component:DashboardComponent}, 
     {path:'progress', component:ProgressComponent}, 
-    {path:'grafica1', component:Grafica1Component},
-    //{ path: 'path/:routeParam', component: MyComponent },
-    //{ path: 'staticPath', component: ... },
-    //{ path: '**', component: ... },
-    //{ path: 'oldPath', redirectTo: '/staticPath' },
-    //{ path: ..., component: ..., data: { message: 'Custom' }
+    {path:'grafica1', component:Grafica1Component}, 
 ];
 
 @NgModule({
