@@ -1,3 +1,6 @@
+import { environment } from 'src/environments/environment'
+
+const api_url =environment.base_url;
 export class User{
     constructor(
         public name:string,
@@ -7,5 +10,17 @@ export class User{
         public google?:boolean,
         public role?:string, 
         public uid?:string,
-    ){}
+    ){} 
+
+    get imageUrl(){
+        if(this.img.includes('https')){
+            return this.img;
+        }
+        if(this.img){ 
+            return `${api_url}//upload/users/${this.img}`; 
+        } else{
+            return `${api_url}/upload/users/no-image`;
+        } 
+        return 
+    }
 }
