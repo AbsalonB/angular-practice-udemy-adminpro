@@ -12,7 +12,8 @@ import { PagesComponent } from './pages.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { ProfileComponent } from './profile/profile.component'; 
+import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './maintenance/users/users.component'; 
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
     AccountSettingsComponent,
     PromesaComponent,
     RxjsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersComponent
   ],
   exports:[
     DashboardComponent,

@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
               private userService: UserService,
               private fileUploadService: FileUploadService) { 
 
-                this.user = userService.user;
+                this.user = userService.user; 
               }
 
   ngOnInit(): void {
@@ -53,12 +53,12 @@ export class ProfileComponent implements OnInit {
     reader.readAsDataURL( file );
 
     reader.onload = () =>{
-      this.imgTemp = reader.result;
-      console.log(reader.result);
+      this.imgTemp = reader.result; 
     }
   }
 
   uploadImage(){
+    console.log("AAABCC");
     this.fileUploadService.updatePhoto(this.imageUpload,'users', this.user.uid)
     .then( img =>{
       this.user.img = img;

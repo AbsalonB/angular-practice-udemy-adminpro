@@ -9,6 +9,7 @@ import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './maintenance/users/users.component';
 
 const routes: Routes = [  
     {
@@ -23,6 +24,11 @@ const routes: Routes = [
           {path:"promesa", component: PromesaComponent, data:{title:'Promesa'}}, 
           {path:"rxjs", component: RxjsComponent, data:{title:'RXJS'}}, 
           {path:"profile", component: ProfileComponent, data:{title:'Profile'}}, 
+
+          //mantenimientos
+          {path:"users", component: UsersComponent, data:{title:'Usuario de aplicación'}}, 
+
+
         ]
     },
       
