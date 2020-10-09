@@ -13,8 +13,11 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UsersComponent } from './maintenance/users/users.component'; 
-
+import { UsersComponent } from './maintenance/users/users.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';  
+import { PipesModule } from '../pipes/pipes.module'; 
+import { DoctorComponent } from './maintenance/doctors/doctor.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { UsersComponent } from './maintenance/users/users.component';
     PromesaComponent,
     RxjsComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    HospitalsComponent,
+    DoctorsComponent,  
+    DoctorComponent,
   ],
   exports:[
     DashboardComponent,
@@ -43,7 +49,8 @@ import { UsersComponent } from './maintenance/users/users.component';
     ReactiveFormsModule,
     SharedModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule,  
   ]
 })
 export class PagesModule { }

@@ -9,7 +9,10 @@ import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
-import { UsersComponent } from './maintenance/users/users.component';
+import { UsersComponent } from './maintenance/users/users.component'; 
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorComponent } from './maintenance/doctors/doctor.component';
 
 const routes: Routes = [  
     {
@@ -26,9 +29,10 @@ const routes: Routes = [
           {path:"profile", component: ProfileComponent, data:{title:'Profile'}}, 
 
           //mantenimientos
-          {path:"users", component: UsersComponent, data:{title:'Usuario de aplicación'}}, 
-
-
+          {path:"users", component: UsersComponent, data:{title:'Mantenimiento de usuarios'}}, 
+          {path:"hospitals", component: HospitalsComponent, data:{title:'Mantenimiento de hospitales'}}, 
+          {path:"doctors", component: DoctorsComponent, data:{title:'Mantenimiento de médicos'}}, 
+          {path:"doctor/:id", component: DoctorComponent, data:{title:'Mantenimiento de médicos'}},  
         ]
     },
       

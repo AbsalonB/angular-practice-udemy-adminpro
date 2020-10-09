@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   public totalUsers:Number=0;
-  public usersT:User[]=[];
+  public usersT:any[]=[];
   public usersTemp:User[]=[];
   public from:number=0;
   public loading:boolean = true;
