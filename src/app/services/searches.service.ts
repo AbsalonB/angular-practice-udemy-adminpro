@@ -59,4 +59,9 @@ export class SearchesService {
               })
             );
   }
+
+  globalSearch(text:string){
+    const url=`${base_url}/todo/${text}`; 
+    return this.http.get(url,this.headers);
+  }
 }

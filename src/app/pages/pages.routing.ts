@@ -13,6 +13,8 @@ import { UsersComponent } from './maintenance/users/users.component';
 import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 import { DoctorComponent } from './maintenance/doctors/doctor.component';
+import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [  
     {
@@ -24,12 +26,13 @@ const routes: Routes = [
           {path:'progress', component: ProgressComponent, data:{title:'Progress Bar'}},
           {path:"grafica1", component: Grafica1Component, data:{title:'Grafica'}}, 
           {path:"account-settings", component: AccountSettingsComponent, data:{title:'Configuracion'}}, 
+          {path:"search/:text", component: SearchComponent, data:{title:'Búsqueda'}}, 
           {path:"promesa", component: PromesaComponent, data:{title:'Promesa'}}, 
           {path:"rxjs", component: RxjsComponent, data:{title:'RXJS'}}, 
           {path:"profile", component: ProfileComponent, data:{title:'Profile'}}, 
 
           //mantenimientos
-          {path:"users", component: UsersComponent, data:{title:'Mantenimiento de usuarios'}}, 
+          {path:"users", canActivate:[AdminGuard], component: UsersComponent, data:{title:'Mantenimiento de usuarios'}}, 
           {path:"hospitals", component: HospitalsComponent, data:{title:'Mantenimiento de hospitales'}}, 
           {path:"doctors", component: DoctorsComponent, data:{title:'Mantenimiento de médicos'}}, 
           {path:"doctor/:id", component: DoctorComponent, data:{title:'Mantenimiento de médicos'}},  

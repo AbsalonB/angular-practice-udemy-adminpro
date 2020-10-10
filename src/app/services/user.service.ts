@@ -39,6 +39,7 @@ export class UserService {
     
     logout(){
       localStorage.removeItem('token');
+      localStorage.removeItem('menu');
       this.auth2.signOut().then(() => { 
         this.ngZone.run(()=>{
           this.router.navigateByUrl('/login'); 
@@ -62,6 +63,15 @@ export class UserService {
       }
     }
 
+    get role(): 'ADMIN_ROLE' |'USER_ROLE'{
+      return this.user.role;
+    }
+
+    saveLocalStorage  (token:string, menu:any){
+      localStorage.setItem('token', token);
+      localStorage.setItem('menu', JSON.stringify(menu));
+    }
+
     validatToken():Observable<boolean>{ 
 
       return this.http.get(`${base_url}/login/renew`,{
@@ -71,8 +81,8 @@ export class UserService {
       }).pipe(
         map((resp:any)  =>{
           const {email, google,name,role,img='',uid} = resp.user; 
-          this.user = new User(name, email, '', img, google, role, uid); 
-          localStorage.setItem('token', resp.token);
+          this.user = new User(name, email, '', img, google, role, uid);  
+             this.saveLocalStorage(resp.token,resp.menu);
           return true; 
         }), 
         catchError(error=>of(false)) 
@@ -83,7 +93,7 @@ export class UserService {
        return this.http.post(`${ base_url }/users`, formData)  
        .pipe(
         tap((resp:any)=>{
-          localStorage.setItem('token', resp.token);
+          this.saveLocalStorage(resp.token,resp.menu);
         })
       );
     } 
@@ -112,7 +122,7 @@ export class UserService {
       return this.http.post(`${ base_url }/login`, formData)
         .pipe(
           tap((resp:any)=>{
-            localStorage.setItem('token', resp.token);
+            this.saveLocalStorage(resp.token,resp.menu);
           })
         );
     } 
@@ -121,7 +131,7 @@ export class UserService {
       return this.http.post(`${ base_url }/login/google`, {token})
       .pipe(
         tap((resp:any)=>{
-          localStorage.setItem('token', resp.token);
+          this.saveLocalStorage(resp.token,resp.menu);
         })
       );
     }
